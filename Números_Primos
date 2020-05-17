@@ -1,0 +1,24 @@
+input_1 = int(input('Informe o limite mínimo: ')) 
+input_2 = int(input('Informe o limite máximo: ')) 
+input_2 += 1                                      #Adiciona 1 para o Range() utilizar os valores digitados pelo usuário
+
+for numero in range(input_1, input_2):            #Percorre o range de valores
+  divisor  = 2                                    #Começa a divisão por 2
+  primo    = True                                 #Começa como True e alterna para False caso o resto da divisão dê 0
+
+  while numero > divisor:                         #Enquanto o número for maior que o seu divisor (que começa em 2) realiza o módulo                        
+    if numero % divisor == 0:                     #Se o módulo da divisão do número por divisor, diferente daquele, for 0 não é mais primo
+      primo = False                               #Marca o número como não primo na primeira divisão com resto=0 e avança para o próximo
+      break
+    else:                                         #Se o módulo não for 0 acrescenta 1 ao divisor
+      divisor += 1
+
+  if primo == True:                               #Se o divisor chegar ao mesmo valor do numero e não for marcado com primo=False, então este é primo
+    if numero == 1:                               #Número primo começa a partir de 2
+      pass
+    else:
+      print (numero, 'é primo')
+      primo = False
+
+  else:
+    primo = False
